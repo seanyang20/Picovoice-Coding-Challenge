@@ -1,13 +1,24 @@
+@charset "UTF-8";
 *::before, *::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.stars a {
-  opacity: 50%;
+.stars {
+  direction: rtl;
+  text-align: center;
+}
+
+.single-star {
   cursor: pointer;
 }
-.stars a:hover {
-  opacity: 100%;
+.single-star::before {
+  content: "☆";
+}
+
+.stars > .single-star:hover:before,
+.stars > .single-star:hover ~ .single-star:before {
+  content: "★";
+  color: grey;
 }/*# sourceMappingURL=main.css.map */
