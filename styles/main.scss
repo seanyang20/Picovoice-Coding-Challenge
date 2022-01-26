@@ -8,7 +8,7 @@
     
 }
 .stars {
-    direction: rtl;
+    direction: rtl;            // changing direction going from right to left to enable selection of preceding elements
     text-align: center;
 }
 
@@ -21,7 +21,7 @@
 
  }
 .stars > .single-star:hover:before,
-.stars > .single-star:hover ~ .single-star:before {
+.stars > .single-star:hover ~ .single-star:before {         // ~ to select succeeding elements 
     content: "\2605";
     color: grey;
  }
