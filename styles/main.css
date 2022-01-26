@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+.stars.disabled {
+  pointer-events: none;
+}
+
 .single-star {
   cursor: pointer;
 }
@@ -17,8 +21,14 @@
   content: "☆";
 }
 
-.stars > .single-star:hover:before,
-.stars > .single-star:hover ~ .single-star:before {
+.stars > .single-star:hover::before,
+.stars > .single-star:hover ~ .single-star::before {
   content: "★";
   color: grey;
+}
+
+.stars > .single-star.active::before,
+.stars > .single-star.active ~ .single-star::before {
+  content: "★";
+  color: black;
 }/*# sourceMappingURL=main.css.map */

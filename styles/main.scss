@@ -11,6 +11,9 @@
     direction: rtl;            // changing direction going from right to left to enable selection of preceding elements
     text-align: center;
 }
+.stars.disabled {
+    pointer-events: none;
+}
 
 .single-star {
     cursor: pointer;
@@ -20,9 +23,14 @@
     }
 
  }
-.stars > .single-star:hover:before,
-.stars > .single-star:hover ~ .single-star:before {         // ~ to select succeeding elements 
+.stars > .single-star:hover::before,
+.stars > .single-star:hover ~ .single-star::before {         // ~ to select succeeding elements 
     content: "\2605";
     color: grey;
+ }
+.stars > .single-star.active::before,
+.stars > .single-star.active ~ .single-star::before {         // ~ to select succeeding elements 
+    content: "\2605";
+    color: black;
  }
 
