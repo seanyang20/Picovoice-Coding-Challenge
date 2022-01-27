@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+.header {
+  text-align: center;
+}
+
 .stars {
   direction: rtl;
   text-align: center;
@@ -18,7 +22,7 @@
 
 .star {
   cursor: pointer;
-  font-size: 2em;
+  font-size: 4em;
   display: inline-block;
 }
 .star::before {

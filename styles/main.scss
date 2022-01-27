@@ -4,6 +4,9 @@
   padding: 0;
   margin: 0;
 }
+.header {
+    text-align: center;
+}
 .stars {
   direction: rtl; // changing direction going from right to left to enable selection of preceding elements
   text-align: center;
@@ -14,7 +17,7 @@
 }
 .star {
   cursor: pointer;
-  font-size: 2em;
+  font-size: 4em;
   display: inline-block;
 
   &::before {
