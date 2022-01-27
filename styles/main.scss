@@ -1,36 +1,43 @@
-*::before, *::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
- }
-
-.header {
-    
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 .stars {
-    direction: rtl;            // changing direction going from right to left to enable selection of preceding elements
-    text-align: center;
+  direction: rtl; // changing direction going from right to left to enable selection of preceding elements
+  text-align: center;
 }
-.stars.disabled {
+.stars ul {
+  list-style-type: none;
+  padding: 0;
+}
+.star {
+  cursor: pointer;
+  font-size: 2em;
+  display: inline-block;
+
+  &::before {
+    content: "\2606";
+  }
+}
+// .stars.disabled {
+//   pointer-events: none;
+// }
+
+.stars ul > .star:not(.no-hover):hover::before,
+.stars ul > .star:not(.no-hover):hover ~ .star::before {
+  // ~ to select succeeding elements
+  content: "\2605";
+  color: grey;
+}
+.stars ul > .star.active::before
+// .stars ul > .star.active ~ .star::before 
+{
+  // ~ to select succeeding elements
+  content: "\2605";
+  color: black !important;
+}
+.noHover{
     pointer-events: none;
 }
-
-.single-star {
-    cursor: pointer;
-   
-    &::before {
-        content: "\2606";
-    }
-
- }
-.stars > .single-star:hover::before,
-.stars > .single-star:hover ~ .single-star::before {         // ~ to select succeeding elements 
-    content: "\2605";
-    color: grey;
- }
-.stars > .single-star.active::before,
-.stars > .single-star.active ~ .single-star::before {         // ~ to select succeeding elements 
-    content: "\2605";
-    color: black;
- }
-
