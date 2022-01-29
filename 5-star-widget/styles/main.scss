@@ -7,8 +7,10 @@
 .header {
     text-align: center;
 }
+// changing direction going from right to left to enable preceding elements
+// of hovered or clicked star to have the same hover or active state
 .stars {
-  direction: rtl; // changing direction going from right to left to enable selection of preceding elements
+  direction: rtl; 
   text-align: center;
 }
 .stars ul {
@@ -21,23 +23,19 @@
   display: inline-block;
 
   &::before {
-    content: "\2606";
+    content: "\2606"; // getting star from UTF-8 charset 
   }
 }
-// .stars.disabled {
-//   pointer-events: none;
-// }
-
+// state of star upon hover
 .stars ul > .star:not(.no-hover):hover::before,
 .stars ul > .star:not(.no-hover):hover ~ .star::before {
-  // ~ to select succeeding elements
-  content: "\2605";
+  content: "\2605";     
   color: grey;
 }
+// state of star upon click
 .stars ul > .star.active::before
 // .stars ul > .star.active ~ .star::before 
 {
-  // ~ to select succeeding elements
   content: "\2605";
   color: black !important;
 }
