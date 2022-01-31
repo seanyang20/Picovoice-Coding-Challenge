@@ -12,5 +12,16 @@ cache = OrderedDict()
 def get_book_info(isbn):
     return {"The Last Lecture", "Randy Pausch", "English"}
 
+# Optimized caching function
+def get_book_info_via_cache(isbn):
+    # if the requested input exists in the cache then we retrieve it from the cache
+    if isbn in cache:
+        cache.move_to_end(isbn) # move to last position of LRU for optimization 
+        return cache[isbn]
 
-    
+
+# Testing 
+get_book_info("1")
+get_book_info_via_cache("1")
+print(cache)     
+
