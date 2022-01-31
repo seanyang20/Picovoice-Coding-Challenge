@@ -21,14 +21,17 @@ def get_book_info_via_cache(isbn):
     else: 
         book = get_book_info(isbn) # call the function to get book info if not cached 
         cache[isbn] = book         # caching book info
-        cache.move_to_end(isbn)    # moe to end of cache 
+        cache.move_to_end(isbn)    # move to end of cache 
+        if len(cache) > 3:         # LRU cache can only hold a maximum of 3
+            cache.popitem(last = False) # getting rid of first item 
+        return book
     
         
 
 # Testing 
-get_book_info("1")
-get_book_info_via_cache("1")
-print(cache)     
+# get_book_info("1")
+# get_book_info_via_cache("1")
+# print(cache)     
 
 get_book_info_via_cache("2")
 print(cache)
